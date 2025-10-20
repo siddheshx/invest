@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhesh Investments | Invest with Confidence</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* --- 1. Aesthetic Variables & Global Reset (Sky Blue/White) --- */
+:root{
+  --sky-blue: #E0F2F7;       /* Light Sky Blue for body background */
+  --light-sky-blue: #B3E5FC; /* A slightly deeper sky blue for accents/borders */
+  --white: #FFFFFF;
+  --accent-blue: #0288D1;    /* Primary Deep Blue accent */
+  --accent-dark-blue: #01579B; /* Darker Blue for hovers/text */
+  --text-dark: #263238;      /* Dark gray/blue for main text */
+  --muted: #607D8B;          /* Muted grayish-blue for secondary text */
+  --card-bg: rgba(255,255,255,0.98);
+  --radius: 12px;           
+  --gradient-hero: linear-gradient(135deg, var(--accent-blue), var(--accent-dark-blue)); 
+  --transition-smooth: 0.4s ease-in-out;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Montserrat',sans-serif;
+    background-color:var(--sky-blue); 
+    color:var(--text-dark);
+    line-height:1.7;
+    scroll-behavior:smooth;
+}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif; color: var(--accent-dark-blue);}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+p{color: var(--muted); margin-bottom: 1.2rem; font-weight: 300;}
+a{color: var(--accent-blue); text-decoration: none; transition: var(--transition-smooth);}
+a:hover {color: var(--accent-dark-blue);}
+
+/* --- 2. Header & Navigation --- */
+header{
+  background:var(--white);
+  padding:15px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1); 
+}
+.brand{font-weight:700;font-size:1.8rem;color:var(--accent-blue);letter-spacing: 0.5px;}
+header .container{display:flex;justify-content:space-between;align-items:center;}
+nav ul{display:flex;gap:30px;list-style:none;}
+nav a{color:var(--text-dark);font-weight:500;position:relative;padding-bottom: 5px; text-transform: uppercase; font-size: 0.9rem;}
+nav a:hover{color:var(--accent-blue);}
+nav a::after {content: '';position: absolute;width: 0;height: 2px;bottom: 0;left: 0;background-color: var(--accent-blue);transition: width 0.3s ease-in-out;}
+nav a:hover::after {width: 100%;}
+.hamburger{display:none;font-size:1.6rem;color:var(--accent-blue);cursor:pointer;padding: 5px; z-index: 1001;}
+.close-btn {position: absolute;top: 20px;right: 20px;font-size: 2rem;color: var(--text-dark);cursor: pointer;}
+@media(max-width:992px){
+  .hamburger{display:block;}
+  nav ul{flex-direction:column;position:fixed;top:0;right:-300px;width:280px;height:100vh;background:var(--white);padding:80px 20px 20px;box-shadow:-4px 0 15px rgba(0,0,0,0.1);gap: 12px;}
+  nav ul.show{transform:translateX(-300px);}
+}
+
+/* --- 3. Hero Section --- */
+.hero{position:relative;height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background-color:var(--light-sky-blue);padding:0 16px;}
+.hero video{position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%, -50%);opacity:0.1;z-index:1;}
+.hero-content{position:relative;z-index:2;max-width:1000px;padding: 30px;}
+.hero-content h1{font-size:4rem;margin-bottom:20px;color:var(--accent-dark-blue);line-height: 1.1;}
+.hero-content p{font-size:1.3rem;margin-bottom:40px;color: var(--text-dark);font-weight: 400;}
+a.cta{display:inline-block;background:var(--accent-blue);color:var(--white);padding:14px 40px;border-radius:50px;font-weight:700;transition:all 0.4s ease;box-shadow:0 10px 30px rgba(2, 136, 209, 0.3);text-transform: uppercase;letter-spacing: 1px;}
+a.cta:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(2, 136, 209, 0.5); background-color: var(--accent-dark-blue);}
+
+/* --- 4. Content Sections & Cards (Refined Look) --- */
+section{padding:100px 16px;background-color:var(--sky-blue);} 
+.panel-stylish{
+    background:var(--card-bg);
+    padding:40px;
+    border-radius:var(--radius);
+    box-shadow:0 15px 45px rgba(0,0,0,0.12); 
+    margin: 0 auto;
+    max-width: 1000px;
+    border: 1px solid var(--light-sky-blue);
+}
+.section-title{font-size:3rem;margin-bottom:40px;text-align:center;color:var(--accent-dark-blue);position:relative;font-weight: 900;}
+.section-title::after{content:"";display:block;width:80px;height:3px;background:var(--accent-blue);margin:15px auto 0;border-radius:5px;}
+.card-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px;}
+.card{
+    background:var(--white);
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--accent-blue); 
+    transition:transform 0.5s ease, box-shadow 0.5s ease;
+    text-align:center;
+    cursor: pointer;
+}
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(2, 136, 209, 0.25);
+    background: var(--light-sky-blue);
+}
+.card .icon-container {
+    font-size: 3.5rem; 
+    margin-bottom: 20px;
+    color: var(--accent-blue);
+    display: inline-block;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(2, 136, 209, 0.4);
+    animation: icon-pulse 2s infinite ease-out;
+}
+.card:hover .icon-container {
+    color: var(--accent-dark-blue);
+    animation: none; 
+    transform: rotate(3deg) scale(1.1); 
+}
+
+/* --- 4.3. Contact Section (New Design) --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+}
+.contact-form input, .contact-form textarea, .contact-form button {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--light-sky-blue);
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.contact-form button {
+    background: var(--accent-blue);
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 5px 15px rgba(2, 136, 209, 0.3);
+    transition: all 0.4s ease;
+}
+.contact-form button:hover {
+    background: var(--accent-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(1, 87, 155, 0.4);
+}
+/* Contact Info Styling */
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.contact-info-item i {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    width: 30px; 
+    text-align: center;
+}
+.contact-info-item a {
+    color: var(--text-dark);
+}
+.contact-info-item a:hover {
+    color: var(--accent-blue);
+}
+
+/* --- 6. Key CSS Animations --- */
+@keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+@keyframes slideIn {from {transform: translateY(-50px) scale(0.95);} to {transform: translateY(0) scale(1);}}
+@keyframes icon-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(2, 136, 209, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(2, 136, 209, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(2, 136, 209, 0); }
+}
+
+/* --- 7. Footer --- */
+footer{
+    background:var(--accent-dark-blue);
+    color:var(--light-sky-blue);
+    padding:20px 0;
+    text-align:center;
+    font-size:0.9rem;
+}
+footer a{color:var(--light-sky-blue);}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">Siddhesh Investments</div>
+    <i class="fas fa-bars hamburger" id="menu-toggle"></i>
+    <nav>
+      <ul id="nav-links">
+        <i class="fas fa-times close-btn"></i>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#whyus">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <video autoplay muted loop>
+    <source src="https://cdn.pixabay.com/vimeo/467948892/financial-37684.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-content">
+    <h1 data-aos="zoom-y-out" data-aos-delay="200">Invest with Clarity. Grow with Confidence.</h1>
+    <p data-aos="fade-up" data-aos-delay="500">Curated investment strategies in stocks, mutual funds, RBI bonds, and SGBs for discerning investors.</p>
+    <a href="#services" class="cta" data-aos="zoom-in" data-aos-delay="800">Explore Services</a>
+  </div>
+</section>
+
+<section id="about" class="container">
+    <div class="panel-stylish" data-aos="fade-up">
+      <h2 class="section-title" data-aos="fade-down">About Siddhesh Investments</h2>
+      <p>Siddhesh Investments provides curated, research-driven financial advice for wealth creation. Our portfolio spans across **equities, mutual funds, RBI bonds, and Sovereign Gold Bonds (SGBs)**, each tailored for discerning investors looking for both growth and stability.</p>
+      <p data-aos="fade-up" data-aos-delay="200">We combine deep market research, analytical insights, and rigorous risk assessment to help our clients grow their wealth intelligently. Our primary focus is on **long-term capital appreciation** and **risk-managed returns**, ensuring that every investment decision is informed and aligned with your financial future. Partner with us for a transparent and disciplined investment journey, building lasting wealth one smart decision at a time.</p>
+    </div>
+</section>
+
+<section id="services" class="container">
+  <div class="panel-stylish">
+    <h2 class="section-title" data-aos="fade-down">Our Specialized Services</h2>
+    <p class="text-center" data-aos="fade-up" data-aos-delay="100" style="text-align: center; color: var(--text-dark);">Click on any service card below for in-depth, tailored investment strategies.</p>
+    <div class="card-container">
+      
+      <div id="mutualfunds" class="card" data-aos="zoom-in-up" data-aos-delay="100" onclick="openModal('mutualfunds')">
+        <span class="icon-container"><i class="fas fa-hand-holding-usd"></i></span>
+        <h3>Mutual Funds</h3>
+        <p>Managed portfolios targeting equity, debt, and hybrid assets for powerful, systematic wealth creation.</p>
+      </div>
+      <div id="stock" class="card" data-aos="zoom-in-up" data-aos-delay="250" onclick="openModal('stock')">
+        <span class="icon-container"><i class="fas fa-chart-line"></i></span>
+        <h3>Stock Market Advisory</h3>
+        <p>Precision research and fundamental analysis guiding long-term equity investment decisions.</p>
+      </div>
+      <div id="sgb" class="card" data-aos="zoom-in-up" data-aos-delay="400" onclick="openModal('sgb')">
+        <span class="icon-container"><i class="fas fa-medal"></i></span>
+        <h3>Sovereign Gold Bonds (SGB)</h3>
+        <p>The safest way to invest in gold, offering assured interest and capital appreciation free from tax.</p>
+      </div>
+      <div id="rbibonds" class="card" data-aos="zoom-in-up" data-aos-delay="550" onclick="openModal('rbibonds')">
+        <span class="icon-container"><i class="fas fa-university"></i></span>
+        <h3>RBI Bonds</h3>
+        <p>Government-backed, low-risk instruments ideal for guaranteed income and capital safety.</p>
+      </div>
+      <div id="land" class="card" data-aos="zoom-in-up" data-aos-delay="700" onclick="openModal('land')">
+        <span class="icon-container"><i class="fas fa-mountain"></i></span>
+        <h3>Land Investment Advisory</h3>
+        <p>Expert guidance on tangible asset acquisition, specializing in high-growth corridor locations.</p>
+      </div>
+      <div class="card" data-aos="zoom-in-up" data-aos-delay="850" onclick="openModal('portfolio')">
+        <span class="icon-container"><i class="fas fa-search-dollar"></i></span>
+        <h3>Portfolio Review</h3>
+        <p>Comprehensive audit of your holdings to rebalance risk, optimize returns, and ensure goal alignment.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="whyus" class="container" style="background: var(--white);">
+    <div class="panel-stylish" style="background: var(--light-sky-blue); max-width: 100%; border: none;" data-aos="fade-up">
+        <h2 class="section-title" data-aos="fade-down">Why Choose Siddhesh?</h2>
+        <p class="text-center" style="color: var(--text-dark);">Our disciplined, long-term approach sets us apart. We focus on value and sustainability, not speculation.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="100">
+                <i class="fas fa-microscope"></i>
+                <h4>Deep Research</h4>
+                <p>Every recommendation is backed by thorough fundamental analysis and macroeconomic data.</p>
+            </div>
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="250">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Risk-First Approach</h4>
+                <p>We prioritize capital preservation and structured risk mitigation over aggressive, short-term gains.</p>
+            </div>
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="400">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h4>Transparent Fees</h4>
+                <p>Clear, upfront fee structure with zero hidden charges or commissions on product recommendations.</p>
+            </div>
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="550">
+                <i class="fas fa-chart-pie"></i>
+                <h4>Holistic View</h4>
+                <p>We look at your entire financial life—tax planning, goals, and legacy—for integrated advice.</p>
+            </div>
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="700">
+                <i class="fas fa-clock"></i>
+                <h4>Long-Term Focus</h4>
+                <p>Strategies are designed for wealth compounding over decades, not months.</p>
+            </div>
+            <div class="feature-item" data-aos="flip-up" data-aos-delay="850">
+                <i class="fas fa-user-tie"></i>
+                <h4>Personalized Service</h4>
+                <p>Direct, one-on-one consultation ensures your portfolio reflects your unique needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="container">
+    <h2 class="section-title" data-aos="fade-down">Client Testimonials</h2>
+    <div class="testimonial-slider" data-aos="fade-up">
+        <div class="testimonial-card">
+            <p>"Siddhesh helped me structure my mutual fund portfolio with a focus on long-term stability. The transparency and depth of research were truly impressive."</p>
+            <div class="author">- Anil K., Tech Consultant</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"I was nervous about buying SGBs, but the guidance provided was clear, concise, and gave me complete confidence in my investment choice."</p>
+            <div class="author">- Priya S., Small Business Owner</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"The portfolio review was an eye-opener. We cut unnecessary risk and focused on high-conviction stocks, drastically improving my annual returns."</p>
+            <div class="author">- Rajesh M., Retired Banker</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"Excellent advice on the RBI Floating Rate Bonds. It perfectly met my need for guaranteed, stable income without market volatility."</p>
+            <div class="author">- Deepika R., Homemaker</div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact" class="container">
+  <div class="panel-stylish" data-aos="fade-up">
+    <h2 class="section-title" data-aos="fade-down">Get in Touch</h2>
+    <p class="text-center mb-5" style="color: var(--text-dark);">Let's discuss your financial goals. Fill out the form or connect with us directly.</p>
+    
+    <div class="contact-grid">
+        <div class="contact-form-container" data-aos="fade-right" data-aos-delay="200">
+            <h3 style="margin-top:0; color:var(--accent-blue); font-family:'Montserrat', sans-serif;">Request a Consultation</h3>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <input type="tel" placeholder="Phone Number (Optional)">
+                <textarea placeholder="Tell us about your investment query..." rows="4"></textarea>
+                <button type="submit">Send Inquiry</button>
+            </form>
+        </div>
+
+        <div class="contact-details-container" data-aos="fade-left" data-aos-delay="400">
+            <h3 style="margin-top:0; color:var(--accent-blue); font-family:'Montserrat', sans-serif;">Direct Contact & Social</h3>
+            
+            <div class="contact-info-item" data-aos="fade-left" data-aos-delay="500">
+                <i class="fas fa-envelope"></i> 
+                <span>Email: <a href="mailto:siddheshssd@gmail.com">siddheshssd@gmail.com</a></span>
+            </div>
+            
+            <div class="contact-info-item" data-aos="fade-left" data-aos-delay="650">
+                <i class="fab fa-linkedin" style="color:#0A66C2;"></i> 
+                <span>LinkedIn: <a href="https://www.linkedin.com/in/siddhesh-deshmukh-64a634332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">Connect Professionally</a></span>
+            </div>
+
+            <div class="contact-info-item" data-aos="fade-left" data-aos-delay="800">
+                <i class="fab fa-instagram"></i> 
+                <span>Instagram: <a href="https://www.instagram.com/siddheshdeshmukh__?igsh=eXE0aGdnNWF3d2ky&utm_source=qr" target="_blank">@siddheshdeshmukh__</a></span>
+            </div>
+            <div class="contact-info-item" data-aos="fade-left" data-aos-delay="950">
+                <i class="fab fa-snapchat"></i> 
+                <span>Snapchat: <a href="https://snapchat.com/t/deHgC2QI" target="_blank">Add me on Snapchat</a></span>
+            </div>
+             <p style="margin-top: 30px; color: var(--muted); font-size: 0.95rem;">We aim to respond to all inquiries within 24 hours.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+    <div class="container">
+        &copy; 2025 Siddhesh Investments. All rights reserved. | <a href="#hero">Back to Top</a>
+    </div>
+</footer>
+
+<div id="detailModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-header">
+      <i id="modal-icon" class="modal-icon"></i>
+      <h2 id="modal-title"></h2>
+    </div>
+    
+    <div id="modal-body" class="modal-body">
+      </div>
+
+    <div class="modal-cta-footer">
+        <a href="#contact" class="cta" onclick="closeModal()">Inquire About This Service</a>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Investment Details Content (Data Source - Unchanged)
+  const investmentContent = {
+    'mutualfunds': {
+      title: 'Mutual Funds Advisory: Systemic Wealth',
+      iconClass: 'fas fa-hand-holding-usd',
+      details: `
+        <p>Mutual Funds are an ideal tool for retail investors to gain diversified exposure to equities, debt, and hybrid assets with professional management. Our advisory focuses on **long-term wealth creation** through disciplined **Systematic Investment Plans (SIPs)**, minimizing market timing risks.</p>
+        <h3>Our Strategy: SIP & Rupee Cost Averaging</h3>
+        <ul>
+            <li><strong>SIP First Approach:</strong> Utilizing regular investments to harness the power of compounding and rupee-cost averaging for stable, low-stress growth.</li>
+            <li><strong>Scheme Selection Protocol:</strong> Rigorous quantitative and qualitative analysis to select funds based on fund manager track record, expense ratio, and risk-adjusted returns (Sharpe Ratio).</li>
+            <li><strong>Tax-Efficient Options:</strong> Detailed guidance on Equity Linked Savings Schemes (ELSS) for tax benefits under Section 80C, ensuring maximum post-tax returns.</li>
+            <li><strong>Core & Satellite Model:</strong> Implementing a portfolio structure using stable, diversified large-cap funds (Core) and selective, high-potential sectoral or mid-cap funds (Satellite) for balanced aggression.</li>
+            <li><strong>Active Monitoring:</strong> Quarterly review of scheme performance against benchmarks and peer groups, with recommendations for necessary re-allocation.</li>
+        </ul>
+        <p><strong>Long-Term Suitability:</strong> Ideal for long-term goals (5+ years), retirement planning, and investors with a moderate-to-high risk appetite seeking diversification across multiple asset classes.</p>
+      `
+    },
+    'stock': {
+      title: 'Stock Market Advisory: Fundamental Growth',
+      iconClass: 'fas fa-chart-line',
+      details: `
+        <p>Our Stock Market Advisory is centered on **fundamental analysis** of high-quality businesses, emphasizing value investing and strategic growth opportunities. We stay far away from speculative or penny stock trading.</p>
+        <h3>Key Focus Areas: Fundamental Growth & Value</h3>
+        <ul>
+            <li><strong>Deep Fundamental Research:</strong> Identifying companies with strong competitive moats, robust balance sheets, sustained Free Cash Flow (FCF), and consistent revenue growth.</li>
+            <li><strong>Sector Allocation Strategy:</strong> Strategic portfolio weighting towards sectors poised for long-term structural growth (e.g., specialized manufacturing, defensives, digital technology).</li>
+            <li><strong>Active Risk Management:</strong> Defining clear entry and exit criteria, including rigorous stop-loss protocols and strategic profit-booking levels to protect accumulated capital.</li>
+            <li><strong>Valuation Discipline:</strong> Timely recommendations based on strict valuation metrics (P/E, P/B, PEG) ensuring capital is deployed at attractive prices.</li>
+            <li><strong>Portfolio Concentration:</strong> Maintaining a focused portfolio of high-conviction stocks to ensure meaningful returns and easier monitoring.</li>
+        </ul>
+        <p><strong>Ideal Investor Profile:</strong> Suited for investors with a moderate-to-high risk tolerance and an investment horizon of 3-5 years or more, looking for direct equity exposure with a disciplined approach.</p>
+      `
+    },
+    'sgb': {
+      title: 'Sovereign Gold Bonds (SGB) Analysis: Safe Haven',
+      iconClass: 'fas fa-medal',
+      details: `
+        <p>SGBs are superior to holding physical gold. Issued by the RBI on behalf of the Government of India, they provide the highest level of safety and multiple financial advantages.</p>
+        <h3>SGB Investment Advantages & Mechanics</h3>
+        <ul>
+            <li><strong>Guaranteed Interest Income:</strong> You receive a fixed interest rate of 2.50% per annum on the initial investment amount, paid semi-annually directly to your bank account.</li>
+            <li><strong>Capital Gains Tax Exemption:</strong> If held until the 8-year maturity period, the entire maturity proceeds (capital gain) are completely exempt from Income Tax.</li>
+            <li><strong>Eliminates Purity Risk:</strong> No concerns about the purity of gold, making charges, or the logistical risks and costs associated with physical storage (locker fees).</li>
+            <li><strong>Sovereign Guarantee:</strong> Being backed by the government, they carry zero credit risk, making them an excellent counter-cyclical asset.</li>
+            <li><strong>Digital Convenience:</strong> Held in demat form, they are easy to trade (after the lock-in) and track.</li>
+        </ul>
+        <p><strong>Use Case:</strong> Essential for portfolio diversification, serving as an effective hedge against currency depreciation and providing stability during periods of market volatility. Excellent for long-term passive wealth growth.</p>
+      `
+    },
+    'rbibonds': {
+      title: 'RBI Bonds (Floating Rate) Strategy: Secure Income',
+      iconClass: 'fas fa-university',
+      details: `
+        <p>RBI Floating Rate Savings Bonds (FRSB) offer a highly secure, low-risk investment avenue. Since they are backed by the Government of India, they guarantee complete capital safety and provide steady, reliable income.</p>
+        <h3>Security, Income, and Rate Management</h3>
+        <ul>
+            <li><strong>Sovereign Guarantee:</strong> The highest possible safety rating, ensuring zero credit risk, making them the cornerstone of any conservative portfolio.</li>
+            <li><strong>Floating Rate Mechanism:</strong> The interest rate is not fixed but reset semi-annually (Jan 1 and July 1), linked to the prevailing National Savings Certificate (NSC) rate plus a margin. This mechanism protects you from inflation and benefits you in a rising interest rate environment.</li>
+            <li><strong>Fixed, Medium-Term Tenure:</strong> The bonds have a 7-year lock-in period, making them excellent vehicles for planning mid-to-long term, illiquid goals like education or house down payments.</li>
+            <li><strong>Taxation:</strong> Interest income is taxable, but the capital gains structure is straightforward and predictable.</li>
+            <li><strong>Stable Payouts:</strong> They are perfectly suited for investors seeking stable, predictable, and periodic (semi-annual) income without the day-to-day volatility of the stock market.</li>
+        </ul>
+        <p><strong>Target Audience:</strong> Ideal for capital preservation, stable income generation, and conservative investors, particularly beneficial for post-retirement planning where safety is paramount.</p>
+      `
+    },
+    'land': {
+      title: 'Land Investment Advisory: Tangible Assets',
+      iconClass: 'fas fa-mountain',
+      details: `
+        <p>Land is a tangible asset that has historically proven to be one of the best **inflation-beating** asset classes. Our service provides full lifecycle advisory for acquisition and disposition, mitigating all common risks associated with real estate.</p>
+        <h3>Our 4-Step Land Advisory & Due Diligence Process</h3>
+        <ul>
+            <li><strong>Macro-Level Location Analysis:</strong> Identifying high-growth corridors, future infrastructure projects (e.g., new expressways, Metro lines, industrial clusters) that drive exponential value appreciation.</li>
+            <li><strong>Rigorous Legal Due Diligence:</strong> Comprehensive verification of title deeds, mutation records, non-encumbrance certificates, and local land use regulations to ensure a clean, risk-free transaction.</li>
+            <li><strong>Strategic Valuation & Negotiation:</strong> Using comparative market analysis to ensure the property is acquired at or below fair market value, and actively assisting in negotiation.</li>
+            <li><strong>Optimized Exit Strategy:</strong> Providing guidance on the optimal holding period and timing for sale, or advising on minor development (e.g., clear demarcation) to maximize capital gains.</li>
+        </ul>
+        <p><strong>Risk & Reward:</strong> Suited for High-Net-Worth Individuals, family offices, and investors with a long-term horizon (7+ years) who appreciate physical assets and high capital appreciation potential.</p>
+      `
+    },
+    'portfolio': {
+      title: 'Portfolio Review & Optimization: Rebalancing',
+      iconClass: 'fas fa-search-dollar',
+      details: `
+        <p>A comprehensive portfolio review is essential to ensure your existing investments (stocks, MFs, bonds, etc.) remain aligned with your current financial goals, risk appetite, and life stage. We provide **actionable, unbiased steps** to enhance returns and eliminate unnecessary risk.</p>
+        <h3>What Our In-Depth Review Covers</h3>
+        <ul>
+            <li><strong>Risk Assessment & Calibration:</strong> Analyzing the overall portfolio volatility, concentration risk (sector/stock overexposure), and calculating the overall Maximum Drawdown (MDD) potential.</li>
+            <li><strong>Performance Audit & Benchmarking:</strong> Objectively measuring your returns against appropriate market indices (Sensex, Nifty, relevant sectoral indices) and identifying all underperforming or duplicate assets.</li>
+            <li><strong>Strategic Asset Rebalancing:</strong> Providing specific recommendations to rebalance across equity, debt, gold, and fixed income to meet your ideal strategic asset allocation targets.</li>
+            <li><strong>Tax Efficiency and Harvesting:</strong> Identifying opportunities for Capital Gains Tax harvesting and restructuring holdings to utilize instruments like ELSS and SGBs most effectively for post-tax maximization.</li>
+            <li><strong>Goal Alignment Check:</strong> Mapping each investment to a specific financial goal (retirement, child's education, house purchase) to ensure accountability and focus.</li>
+        </ul>
+        <p><strong>Recommendation:</strong> Highly recommended for anyone with existing investments who hasn't undertaken a full professional review in the last 12-18 months, or those who have undergone a major life event.</p>
+      `
+    }
+  };
+
+  // AOS Initialization (Smooth entrance)
+  AOS.init({duration: 1000, easing: 'ease-out', once: true, offset: 120});
+
+  // Modal Functions
+  const modal = document.getElementById('detailModal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalIcon = document.getElementById('modal-icon');
+  const modalBody = document.getElementById('modal-body');
+
+  function openModal(serviceId) {
+    const content = investmentContent[serviceId];
+    if (content) {
+      modalTitle.textContent = content.title;
+      modalIcon.className = 'modal-icon ' + content.iconClass; // Set Font Awesome class
+      
+      // Clear previous content
+      modalBody.innerHTML = ''; 
+
+      // 1. Append details
+      const detailsDiv = document.createElement('div');
+      detailsDiv.innerHTML = content.details;
+      modalBody.appendChild(detailsDiv);
+
+      // 2. Add AOS animations to the *injected content*
+      detailsDiv.querySelectorAll('*').forEach((el, i) => {
+        el.setAttribute('data-aos', 'fade-up');
+        el.setAttribute('data-aos-delay', (i) * 50); 
+      });
+      
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      AOS.refresh(); 
+    }
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  // Hamburger Menu Toggle Logic
+  const navLinks = document.getElementById('nav-links');
+  const menuToggle = document.querySelector('.hamburger');
+  const closeBtn = document.querySelector('.close-btn');
+  const navItems = document.querySelectorAll('nav ul li a');
+
+  function toggleMenu() {
+    navLinks.classList.toggle('show');
+    menuToggle.classList.toggle('fa-bars');
+    menuToggle.classList.toggle('fa-times');
+    document.body.classList.toggle('no-scroll');
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+  closeBtn.addEventListener('click', toggleMenu);
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (navLinks.classList.contains('show')) {
+            toggleMenu();
+        }
+    });
+  });
+</script>
+</body>
+</html>
